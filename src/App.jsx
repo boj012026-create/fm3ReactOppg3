@@ -1,9 +1,12 @@
+import TodoList from "./components/TodoList";
+import AddTodo from "./components/AddTodo";
 import './App.css'
 
 function App() {
   return (
     <>
-      <h3>Hello world</h3>
+      <AddTodo/>
+      <TodoList/>
     </>
   )
 }
