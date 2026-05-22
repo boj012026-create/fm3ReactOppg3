@@ -1,16 +1,25 @@
-import TodoContext from "../context/TodoContext";
+import { useState } from "react";
 import { useContext } from "react";
+import { TodoContext } from "../context/TodoContext";
 
-const { addTodo } = useContext(TodoContext);
 export default function AddTodo() {
+  const [text, setText] = useState("");
+  const { addTodo } = useContext(TodoContext);
+
+  const handleAddTodo = (e) => {
+    e.preventDefault(); 
+    addTodo(text);
+  }
   return(
     <>
-      <form onSubmit={addTodo}>
-        <label For="todoInput">Add more tasks</label>
+      <h3>AddTodo</h3>
+      <form onSubmit={handleAddTodo}>
        <input 
-          id="todoInput"
-          name="todoInput"
-          type="text" />
+          value={text}
+          type="text"
+          onChange={ (e) => setText(e.target.value)}  
+        />
+      <button>add</button>
       </form>
     </>
   );

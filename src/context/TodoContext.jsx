@@ -1,15 +1,22 @@
 import { createContext, useState} from "react";
 
+export const TodoContext = createContext({});
 
-export default function TodoProvider({children}) {
+export const TodoProvider = ({ children }) => {
 
   const [todos, setTodos] = useState([]);
 
   //addTodo
   const addTodo = (text) => {
-
+    setTodos(prevTodos => {
+      return [...prevTodos, {
+        id: Date.now(),
+        task: text,
+        done: false,
+      }]
+    });
   }
-  
+
   //toggleTodo
   
   //removeTodo
