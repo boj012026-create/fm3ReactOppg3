@@ -9,10 +9,12 @@ export default function AddTodo() {
   const handleAddTodo = (e) => {
     e.preventDefault(); 
     addTodo(text);
+    setText("");
+
   }
   return(
     <>
-      <h3>AddTodo</h3>
+      <h3>Add Tasks</h3>
       <form onSubmit={handleAddTodo}>
        <input 
           value={text}

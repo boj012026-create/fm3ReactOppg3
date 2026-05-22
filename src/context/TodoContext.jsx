@@ -8,13 +8,15 @@ export const TodoProvider = ({ children }) => {
 
   //addTodo
   const addTodo = (text) => {
-    setTodos(prevTodos => {
-      return [...prevTodos, {
+    const newUser = {
         id: Date.now(),
         task: text,
-        done: false,
-      }]
+        done: false
+    }
+    setTodos(prevTodos => {
+      return [...prevTodos, newUser]
     });
+    console.log(todos);
   }
 
   //toggleTodo
