@@ -10,7 +10,6 @@ export default function TodoList() {
   }
 
   const handleToggle = e => {
-    console.log("handleToggle entered")
     toggleTodo(parentId(e));
   }
 
@@ -36,14 +35,14 @@ export default function TodoList() {
             key={`${task.id}text`}
             htmlFor={`${task.id}checkbox`}
           >
-            {task.done ? task.id : task.task}
-            <button
-              key={`${task.id}delBtn`}
-              onClick={handleRemove}
-            >
-              X
-            </button>
+            {task.done ? (<del>{task.task}</del>) : task.task}
           </label>
+          <button
+            key={`${task.id}delBtn`}
+            onClick={handleRemove}
+          >
+            X
+          </button>
         </li>
       ))}
     </ul>

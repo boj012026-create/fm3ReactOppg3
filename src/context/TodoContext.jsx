@@ -16,13 +16,11 @@ export const TodoProvider = ({ children }) => {
     setTodos(prevTodos => {
       return [...prevTodos, newUser]
     });
-    console.log(todos);
   }
 
   //toggleTodo
   const toggleTodo = (id) => {
     setTodos( todos.map(task => {
-          console.log(`toggleTodo ${task.id} ${id} ${task.id == id}`);
         if (task.id == id) {
           task.done = !task.done;
         }
@@ -33,7 +31,6 @@ export const TodoProvider = ({ children }) => {
 
   //removeTodo
     const removeTodo = (id) => {
-    console.log(id)
     setTodos( todos.filter(task => task.id != id) );
   }
 
