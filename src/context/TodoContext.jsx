@@ -20,11 +20,24 @@ export const TodoProvider = ({ children }) => {
   }
 
   //toggleTodo
-  
-  //removeTodo
+  const toggleTodo = (id) => {
+    setTodos( todos.map(task => {
+        if (task.id === id) {
+          console.log(task.id, id)
+          task.done = !task.done;
+        }
+      return task;
+      })
+    )
+  } 
 
-  const ProviderObj = { todos, addTodo };
+  //removeTodo
+    const removeTodo = (id) => {
+    setTodos( todos.filter(task => task.id != id) );
+  }
+
+  const ProviderObj = { todos, addTodo, toggleTodo, removeTodo };
   return(
-    <TodoContext.Provider value={ProviderObj}>{children}</TodoContext.Provider>
+    <TodoContext value={ProviderObj}>{children}</TodoContext>
   );
 }
