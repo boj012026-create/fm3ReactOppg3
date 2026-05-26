@@ -1,6 +1,5 @@
 import { useContext } from 'react';
-import TodoItem from './TodoItem';
-import {TodoContext} from '../context/TodoContext';
+import { TodoContext } from '../context/TodoContext';
 
 
 export default function TodoList() {
@@ -11,13 +10,10 @@ export default function TodoList() {
   }
 
   const handleToggle = e => {
-    console.log(parentId(e));
-    console.log(e.target.parentElement.id);
     toggleTodo(parentId(e));
   }
 
   const handleRemove = e => {
-    console.log("handle remove entered");
     removeTodo(parentId(e));
   }
 
