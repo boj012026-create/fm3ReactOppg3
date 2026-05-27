@@ -19,6 +19,7 @@ export default function AddTodo() {
        <input 
           value={text}
           type="text"
+          required
           onChange={ (e) => setText(e.target.value)}  
         />
       <button>add</button>
